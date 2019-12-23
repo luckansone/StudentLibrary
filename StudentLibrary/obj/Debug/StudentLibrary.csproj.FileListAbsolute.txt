@@ -1,0 +1,16 @@
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\bin\Debug\StudentLibrary.dll.config
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\bin\Debug\StudentLibrary.dll
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\bin\Debug\StudentLibrary.pdb
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\bin\Debug\EntityFramework.dll
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\bin\Debug\EntityFramework.xml
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\obj\Debug\StudentLibrary.csprojAssemblyReference.cache
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\obj\Debug\StudentLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\obj\Debug\StudentLibrary.csproj.CopyComplete
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\obj\Debug\StudentLibrary.dll
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\obj\Debug\StudentLibrary.pdb
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\obj\Debug\StudentLibrary.Migrations.Initialize_database.resources
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\obj\Debug\StudentLibrary.csproj.GenerateResource.cache
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\obj\Debug\StudentLibrary.Migrations.Change_model.resources
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary\obj\Debug\StudentLibrary.Migrations.Change_username.resources
