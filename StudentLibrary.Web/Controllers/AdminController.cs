@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace StudentLibrary.Web.Controllers
 {
@@ -21,11 +22,24 @@ namespace StudentLibrary.Web.Controllers
             this.userService = userService;
             this.documentService = documentService;
         }
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string sortOrder, string searchString, string currentFilter, int ?page)
         {
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.SurnameSortParm = sortOrder == "surname" ? "surname_desc" : "surname";
             ViewBag.GroupSortParm = sortOrder == "group" ? "group_desc" : "group";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
             var users = userService.GetApplicationUsers();
 
             if (!String.IsNullOrEmpty(searchString))
@@ -54,13 +68,29 @@ namespace StudentLibrary.Web.Controllers
                     users = users.OrderBy(x => x.Name).ToList();
                     break;
             }
-            return View(users);
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(users.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult GetDocuments(string sortOrder, string searchString)
+        public ActionResult GetDocuments(string sortOrder, string searchString, string currentFilter, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             ViewBag.AuthorSortParm = sortOrder == "author" ? "author_desc" : "author";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
             var documents = documentService.GetAllDocuments();
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -82,8 +112,11 @@ namespace StudentLibrary.Web.Controllers
                     documents = documents.OrderBy(x => x.Title).ToList();
                     break;
             }
-            
-            return View(documents);
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+
+            return View(documents.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult CreateDoc()

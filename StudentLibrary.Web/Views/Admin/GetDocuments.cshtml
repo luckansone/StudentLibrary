@@ -1,4 +1,6 @@
-﻿@model IEnumerable<StudentLibrary.Models.Document>
+﻿@model PagedList.IPagedList<StudentLibrary.Models.Document>
+@using  PagedList.Mvc
+
 <h4><strong>Documents Panel</strong></h4>
 
 @using (Html.BeginForm())
@@ -7,7 +9,7 @@
         <div class="form-inputs">
             <div class="form-group">
                 <div class="col-md-10">
-                    Find by title or author: @Html.TextBox("searchString", null, new { @class = "form-control" })
+                    Find by title or author: @Html.TextBox("searchString", ViewBag.CurrentFilter as String, new { @class = "form-control" })
 
                 </div>
             </div>
@@ -25,10 +27,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Name", "GetDocuments", new { sortOrder = ViewBag.TitleSortParm })
+            @Html.ActionLink("Name", "GetDocuments", new { sortOrder = ViewBag.TitleSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Author", "GetDocuments", new { sortOrder = ViewBag.AuthorSortParm })
+            @Html.ActionLink("Author", "GetDocuments", new { sortOrder = ViewBag.AuthorSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th></th>
     </tr>
@@ -57,13 +59,18 @@
 
 </table>
 
+<div>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("GetDocuments",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter , @class="btn btn-info"}))
+</div>
+
 <script>
     function DeleteInTable(Id) {
         $("tr[id=" + Id + "]").remove();
     }
 </script>
 
-@{HtmlHelper.UnobtrusiveJavaScriptEnabled = true; }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

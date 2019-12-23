@@ -1,13 +1,15 @@
-﻿@model IEnumerable<StudentLibrary.Web.Models.ApplicationUser>
+﻿@model PagedList.IPagedList<StudentLibrary.Web.Models.ApplicationUser>
+@using PagedList.Mvc
+
 <h4><strong>Admin Panel</strong></h4>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "Admin", FormMethod.Get))
 {
     <div class="form-horizontal">
         <div class="form-inputs">
             <div class="form-group">
                 <div class="col-md-10">
-                    Find by name or surname: @Html.TextBox("searchString", null, new { @class = "form-control" })
+                    Find by name or surname: @Html.TextBox("searchString", ViewBag.CurrentFilter as String, new { @class = "form-control" })
 
                 </div>
             </div>
@@ -23,13 +25,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Surname", "Index", new { sortOrder = ViewBag.SurnameSortParm })
+            @Html.ActionLink("Surname", "Index", new { sortOrder = ViewBag.SurnameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Group", "Index", new { sortOrder = ViewBag.GroupSortParm })
+            @Html.ActionLink("Group", "Index", new { sortOrder = ViewBag.GroupSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th></th>
     </tr>
@@ -61,13 +63,18 @@
 
 </table>
 
+<div>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter , @class="btn btn-info"}))
+</div>
+
 <script>
     function DeleteInTable() {
         window.location.reload();
     }
 </script>
 
-@{HtmlHelper.UnobtrusiveJavaScriptEnabled = true; }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

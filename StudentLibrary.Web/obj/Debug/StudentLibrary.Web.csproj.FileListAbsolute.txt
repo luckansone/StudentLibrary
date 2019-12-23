@@ -214,3 +214,7 @@ C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary.Web\obj\Debug
 C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary.Web\bin\StudentLibrary.dll
 C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary.Web\bin\StudentLibrary.pdb
 C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary.Web\bin\StudentLibrary.dll.config
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary.Web\bin\PagedList.dll
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary.Web\bin\PagedList.Mvc.dll
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary.Web\bin\PagedList.xml
+C:\Users\Helen Kravchuk\source\repos\StudentLibrary\StudentLibrary.Web\bin\PagedList.Mvc.xml
